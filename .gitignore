@@ -1,0 +1,25 @@
+# Virtual environment
+venv/
+
+# CIFAR-10 dataset (~170MB)
+data/
+
+# Model checkpoints
+checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Generated outputs (optional — remove these lines if you want plots in the repo)
+experiments/plots/
+experiments/results.csv
+
+# Mac junk
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/

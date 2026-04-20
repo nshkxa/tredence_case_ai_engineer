@@ -1,0 +1,35 @@
+# ================================================================
+# config.yaml — Self-Pruning Neural Network hyperparameters
+# ================================================================
+# All CLI overrides in train.py take precedence over these values.
+
+# ── Reproducibility ─────────────────────────────────────────────
+seed: 42
+
+# ── Paths ────────────────────────────────────────────────────────
+data_dir: ./data
+results_dir: ./experiments
+checkpoint_dir: ./checkpoints
+
+# ── Training ─────────────────────────────────────────────────────
+epochs: 30              # Increase to 50+ for higher accuracy
+batch_size: 128
+lr: 0.001               # Adam learning rate
+weight_decay: 0.0001    # L2 regularization on weights (not gates)
+dropout: 0.3
+
+# ── Model architecture ───────────────────────────────────────────
+# CIFAR-10: 3072 input → hidden_dims → 10 output
+hidden_dims:
+  - 512
+  - 256
+  - 128
+
+# ── Lambda sweep (sparsity regularization strength) ──────────────
+# Low  → slight pruning, near-baseline accuracy
+# Med  → moderate sparsity, small accuracy cost
+# High → heavy pruning, visible accuracy drop
+lambda_values:
+  - 1.0e-5    # low
+  - 1.0e-4    # medium
+  - 1.0e-3    # high
